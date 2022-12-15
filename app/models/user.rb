@@ -17,4 +17,5 @@
 #  index_users_on_username  (username) UNIQUE
 #
 class User < ApplicationRecord
+  scope :by_username, -> { unscope(:order).order(username: :asc) }
 end

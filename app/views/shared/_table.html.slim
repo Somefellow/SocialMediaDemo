@@ -1,0 +1,11 @@
+- ignored_columns ||= []
+- columns = models.klass.column_names.reject { |column_name| ignored_columns.include?(column_name) }
+table
+    thead
+        - columns.each do |column_name|
+            th = column_name
+    tbody
+        - models.each do |model|
+            tr
+                - columns.each do |column_name|
+                    td = model.send(column_name)
