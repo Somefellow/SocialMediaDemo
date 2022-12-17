@@ -12,4 +12,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
   end
+
+  get   'login'   => 'sessions#new'
+  post  'login'   => 'sessions#create'
+  get   'logout'  => 'sessions#destroy'
 end
