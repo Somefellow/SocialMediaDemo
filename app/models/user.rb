@@ -8,14 +8,12 @@
 #  email           :string
 #  full_name       :string
 #  password_digest :string
-#  username        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
 # Indexes
 #
-#  index_users_on_email     (email) UNIQUE
-#  index_users_on_username  (username) UNIQUE
+#  index_users_on_email  (email) UNIQUE
 #
 class User < ApplicationRecord
   include ActiveModel::SecurePassword
