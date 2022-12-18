@@ -19,5 +19,5 @@ class User < ApplicationRecord
   include ActiveModel::SecurePassword
   has_secure_password
 
-  scope :by_username, -> { unscope(:order).order(username: :asc) }
+  scope :by_email, -> { unscope(:order).order(email: :asc) }
 end

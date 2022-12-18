@@ -9,7 +9,7 @@ module Admin
     private
 
     def load_users
-      @users = User.by_username
+      @users = User.by_email
     end
   end
 end
