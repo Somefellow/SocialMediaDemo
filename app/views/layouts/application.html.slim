@@ -7,8 +7,17 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_importmap_tags
+    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   body
+    header.navbar.navbar-fixed-top.navbar-inverse
+      div.container
+        = link_to 'SocialMediaDemo', root_path, id: 'logo'
+        nav
+          ul.nav.navbar.nav-right
+            li = link_to 'Home', '#'
+            li = link_to 'Help', '#'
+            li = link_to 'Login', '#'
     - flash.each do |message_type, message|
       div class=['alert', "alert-#{message_type}"] = message
-    = yield
+    div.container
+      = yield
