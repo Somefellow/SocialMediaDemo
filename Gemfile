@@ -78,6 +78,7 @@ group :development do
   # Dev tools
   gem 'annotate'
   gem 'rubocop-rails'
+  gem 'solargraph'
 end
 
 group :test do
