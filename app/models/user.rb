@@ -41,4 +41,7 @@ class User < ApplicationRecord
   def pending_friend_requests
     received_friends.reject { |friend| friend.active_friends.include?(self) }
   end
+
+  # Posts
+  has_many :posts, dependent: :destroy
 end
