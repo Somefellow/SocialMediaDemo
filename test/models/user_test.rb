@@ -18,7 +18,19 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test 'password_digest populated' do
+    assert User.where(password_digest: nil).empty?
+  end
+
+  test 'password mandatory' do
+    assert_raise ActiveRecord::RecordInvalid do
+      User.create!(email: 'test@test.com', full_name: 'name')
+    end
+  end
+
+  test 'email unique' do
+    assert_raise ActiveRecord::RecordNotUnique do
+      User.create!(email: User.last.email, full_name: 'name', password: 'password')
+    end
+  end
 end
