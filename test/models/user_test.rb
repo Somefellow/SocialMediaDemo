@@ -19,6 +19,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'password_digest populated' do
+    assert User.count.positive?
     assert User.where(password_digest: nil).empty?
   end
 
