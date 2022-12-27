@@ -1,0 +1,12 @@
+h1 Registration
+= form_for :registration, url: register_path do |f|
+    div
+        = f.label          :email
+        = f.text_field     :email
+    div
+        = f.label          :full_name
+        = f.text_field     :full_name
+    div
+        = f.label          :password
+        = f.password_field :password
+    div = f.submit 'Register'
