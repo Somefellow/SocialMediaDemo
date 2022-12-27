@@ -3,20 +3,24 @@ html
   head
     title
       | SocialMediaDemo
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
   body
     header.navbar.navbar-fixed-top.navbar-inverse
       div.container
-        = link_to 'SocialMediaDemo', root_path, id: 'logo'
+        = link_to 'SocialMediaDemo', root_path, id: 'logo', class: 'btn btn-lg btn-primary'
         nav
           ul.nav.navbar.nav-right
-            li = link_to 'Home', '#'
-            li = link_to 'Help', '#'
-            li = link_to 'Login', '#'
+            li = link_to 'Home', root_path, class: 'btn btn-lg btn-primary'
+            li = link_to 'Help', '#', class: 'btn btn-lg btn-primary'
+            li
+              - if session[:user_id].present?
+                = link_to "Logout of #{session[:email]}", logout_path, class: 'btn btn-lg btn-primary'
+              - else
+                = link_to 'Login', login_path, class: 'btn btn-lg btn-primary'
     - flash.each do |message_type, message|
       div class=['alert', "alert-#{message_type}"] = message
     div.container

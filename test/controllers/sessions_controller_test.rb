@@ -35,7 +35,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     user1 = User.create!(email: 'david_heinemeier_hansson@example.com', full_name: 'David Heinemeier Hansson', password: 'password1')
     post login_path, params: { session: { email: user1.email, password: 'wrong_password' } }
     assert_equal path, login_path
-    assert_equal flash[:danger], 'Invalid email/password combination'
+    assert_equal flash[:danger], 'Invalid email/password combination.'
     User.destroy_all
   end
 end

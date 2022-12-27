@@ -1,11 +1,16 @@
 - ignored_columns ||= []
-- columns = models.klass.column_names.reject { |column_name| ignored_columns.include?(column_name) }
-table
+- columns = models.klass.column_names.reject { |column_name| column_name == 'id' || ignored_columns.include?(column_name) }
+table.table.table-bordered.table-striped.table-hover.table-sm
+    caption List of users
     thead
+        - unless ignored_columns.include?('id')
+          th scope='col' id
         - columns.each do |column_name|
-            th = column_name
+            th scope='col' = column_name
     tbody
         - models.each do |model|
             tr
+                - unless ignored_columns.include?('id')
+                    td scope='row' = model.send(:id)
                 - columns.each do |column_name|
                     td = model.send(column_name)

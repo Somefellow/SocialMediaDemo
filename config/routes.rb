@@ -9,11 +9,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'home#index'
 
+  # Backdoor admin area
   namespace :admin do
     resources :users
   end
 
-  get   'login'   => 'sessions#new'
-  post  'login'   => 'sessions#create'
-  get   'logout'  => 'sessions#destroy'
+  # Login / Registration
+  get   'login'     => 'sessions#new'
+  post  'login'     => 'sessions#create'
+  get   'logout'    => 'sessions#destroy'
+  get   'register'  => 'registrations#new'
+  post  'register'  => 'registrations#create'
 end
