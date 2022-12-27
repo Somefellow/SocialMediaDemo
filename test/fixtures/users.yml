@@ -6,6 +6,7 @@
 #  email           :string
 #  full_name       :string
 #  password_digest :string
+#  search_field    :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -13,14 +14,8 @@
 #
 #  index_users_on_email  (email) UNIQUE
 #
-user1:
- email: david_heinemeier_hansson@example.com
- full_name: David Heinemeier Hansson
- password_digest: $2a$04$BTf1/v2s2D9BsVGG.BZZfeUDwcC8hOpWh.VIr4E4oTywCXP3m20Fm
- #password: password1
- 
-user2:
- email: steve_ross_kellock@example.com
- full_name: Steve Ross Kellock
- password_digest: $2a$04$RcV.E8qFKt0ilsjc1Ir/UOjuZZTovijefgyyRdivjIESAaJY0NDIC
- #password: password2
+one: {}
+# column: value
+#
+two: {}
+# column: value

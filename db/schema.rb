@@ -37,6 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 20_221_224_055_044) do
     t.string 'email'
     t.string 'password_digest'
     t.string 'full_name'
+    t.string 'search_field'
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
     t.index ['email'], name: 'index_users_on_email', unique: true

@@ -8,6 +8,7 @@
 #  email           :string
 #  full_name       :string
 #  password_digest :string
+#  search_field    :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
@@ -22,6 +23,9 @@ class User < ApplicationRecord
 
   # Scopes for views
   scope :by_email, -> { unscope(:order).order(email: :asc) }
+
+  # Posts
+  has_many :posts, dependent: :destroy
 
   # Friendships
   has_many :friendships, dependent: :destroy
@@ -42,6 +46,14 @@ class User < ApplicationRecord
     received_friends.reject { |friend| friend.active_friends.include?(self) }
   end
 
-  # Posts
-  has_many :posts, dependent: :destroy
+  private
+
+  # Search field
+  before_save :populate_search_field
+
+  SEARCHABLE_ATTRIBUTES = %i[email full_name].freeze
+
+  def populate_search_field
+    self.search_field = SEARCHABLE_ATTRIBUTES.map { |attr| send(attr).downcase }.join(' ')
+  end
 end

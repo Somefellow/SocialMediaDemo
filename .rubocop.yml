@@ -2,6 +2,10 @@ AllCops:
     SuggestExtensions: false
     NewCops: enable
 
+Lint/UselessAssignment:
+  Exclude:
+    - 'db/seeds.rb'
+
 Metrics/CyclomaticComplexity:
     Enabled: false
 
