@@ -11,7 +11,6 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'should save the user id to session on successful login' do
     user1 = User.create!(email: 'david_heinemeier_hansson@example.com', full_name: 'David Heinemeier Hansson', password: 'password1')
     post login_path, params: { session: { email: user1.email, password: 'password1' } }
-    follow_redirect!
     assert_equal session[:user_id], user1.id
     User.destroy_all
   end
