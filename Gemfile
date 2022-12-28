@@ -87,7 +87,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-group :production do
-  gem 'date', '3.3.1'
-end
