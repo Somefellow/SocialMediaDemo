@@ -17,7 +17,7 @@ html
             li = link_to 'Home', root_path, class: 'btn btn-lg btn-primary'
             li = link_to 'Help', '#', class: 'btn btn-lg btn-primary'
             li
-              - if session[:user_id].present?
+              - if logged_in?
                 = link_to "Logout of #{session[:email]}", logout_path, class: 'btn btn-lg btn-primary'
               - else
                 = link_to 'Login', login_path, class: 'btn btn-lg btn-primary'

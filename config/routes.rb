@@ -20,4 +20,7 @@ Rails.application.routes.draw do
   get   'logout'    => 'sessions#destroy'
   get   'register'  => 'registrations#new'
   post  'register'  => 'registrations#create'
+
+  # User profile
+  get '/users/:id', to: 'users#show', as: 'user'
 end
