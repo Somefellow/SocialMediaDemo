@@ -15,12 +15,13 @@ Rails.application.routes.draw do
   end
 
   # Login / Registration
-  get   'login'     => 'sessions#new'
-  post  'login'     => 'sessions#create'
-  get   'logout'    => 'sessions#destroy'
-  get   'register'  => 'registrations#new'
-  post  'register'  => 'registrations#create'
+  get   '/login'     => 'sessions#new'
+  post  '/login'     => 'sessions#create'
+  get   '/logout'    => 'sessions#destroy'
+  get   '/register'  => 'registrations#new'
+  post  '/register'  => 'registrations#create'
 
   # User profile
-  get '/users/:id', to: 'users#show', as: 'user'
+  get '/user', to: 'user#show'
+  get '/user/:id', to: 'user#show'
 end

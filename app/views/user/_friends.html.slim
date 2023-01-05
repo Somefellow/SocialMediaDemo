@@ -1,0 +1,23 @@
+.card
+    .card-header = "Friends of #{user.full_name}"
+    .card-body
+        - if user.friendships.count.positive?
+            table.table.table-striped.table-hover.table-sm
+                caption = "Friends of #{user.full_name}"
+                thead
+                    th scope='col' ID
+                    th scope='col' Email
+                    th scope='col' Full name
+                    th scope='col' Friends since
+                tbody
+                    - user.friendships.each do |friendship|
+                        tr
+                            td scope='row' = friendship.friend.id
+                            td = friendship.friend.email
+                            td = friendship.friend.full_name
+                            - if friendship.mutual?
+                                td = friendship.since
+                            - else
+                                td = 'Pending'
+        - else
+            . No friends to show!
