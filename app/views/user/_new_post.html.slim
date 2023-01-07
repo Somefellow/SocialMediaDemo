@@ -1,0 +1,8 @@
+.card
+    .card-header New post for #{user.full_name}
+    .card-body
+        = form_for :post, url: post_path do |f|
+            div.mb-3
+                = f.label :content, for: 'new_post_content', class: 'visually-hidden'
+                = f.text_area :content, id: 'new_post_content', class: 'form-control', placeholder: 'Content'
+            div = f.submit 'Create post', class: 'btn btn-sm btn-primary'

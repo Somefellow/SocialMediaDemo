@@ -1,0 +1,10 @@
+.card
+    .card-header Posts from #{user.full_name}
+    .card-body
+        - if user.posts.count.positive?
+            - user.posts.newest_first.each do |post|
+                .card
+                    .card-header = "#{user.full_name} - #{post.created_at}"
+                    .card-body = post.content
+        - else
+            . No posts to show.

@@ -16,4 +16,7 @@
 #
 class Post < ApplicationRecord
   belongs_to :user
+
+  # Scopes for views
+  scope :newest_first, -> { unscope(:order).order(created_at: :desc) }
 end

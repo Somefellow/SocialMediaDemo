@@ -24,4 +24,7 @@ Rails.application.routes.draw do
   # User profile
   get '/user', to: 'user#show'
   get '/user/:id', to: 'user#show'
+
+  # New post
+  post '/post', to: 'post#create'
 end
