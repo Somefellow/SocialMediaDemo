@@ -11,7 +11,11 @@ html
   body
     header.navbar.navbar-fixed-top.navbar-inverse
       div.container
-        = link_to 'SocialMediaDemo', root_path, id: 'logo', class: 'btn btn-lg btn-primary'
+        nav
+          ul.nav.navbar.nav-left
+            li = link_to 'SocialMediaDemo', root_path, id: 'logo', class: 'btn btn-lg btn-primary'
+            - if logged_in?
+              li = link_to 'My Profile', user_path, class: 'btn btn-lg btn-primary'
         nav
           ul.nav.navbar.nav-right
             li = link_to 'Home', root_path, class: 'btn btn-lg btn-primary'

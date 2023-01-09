@@ -1,5 +1,8 @@
 div.center.jumbotron
-    h1 Welcome to SocialMediaDemo
-    h2 This is the home page
+  h1 Welcome to SocialMediaDemo
+  h2 This is the home page
+  - if logged_in?
+    = link_to 'My Profile', user_path, class: 'btn btn-lg btn-primary'
+  - else
     = link_to 'Sign up now!', register_path, class: 'btn btn-lg btn-primary'
 = link_to image_tag('logo.png', alt: 'Logo'), root_path
